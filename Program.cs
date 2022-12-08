@@ -32,6 +32,18 @@ void PrintArray(string[] array)  // Функция для вывода миси�
     Console.Write("]");
 }
 
+string[] ArrayConversion(string[] array)
+{
+    string[] newArray = new string[array.Length];
+    int temp = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        newArray[temp] = array[i];
+    }
+    return newArray;
+}
+
 Console.Write("Введите длину массива: ");  //Задаем размер массива
 int arrayLength = Convert.ToInt32(Console.ReadLine());
 
@@ -42,3 +54,5 @@ else
 string[] array = CreateArrayString(arrayLength);
 PrintArray(array);
 }
+string[] newArray = ArrayConversion(array);
+PrintArray(newArray);
