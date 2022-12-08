@@ -1,4 +1,4 @@
-﻿string[] CreateArrayString(int arrayLength)  // Функция для создания массива из строк.
+﻿string[] CreateArrayString(int arrayLength) 
 {
     string[] arrayString = new string[arrayLength];
     for (int i = 0; i < arrayLength; i++)
@@ -9,7 +9,7 @@
     return arrayString;
 }
 
-void PrintArray(string[] array)  // Функция для вывода мисcива.
+void PrintArray(string[] array)  
 {
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
@@ -22,7 +22,7 @@ void PrintArray(string[] array)  // Функция для вывода мисcи
     Console.Write("]");
 }
 
-string[] ArrayConversion(string[] array) // Функция находит число элементов длинна которых меньше или равна 3 и создает новый массив.
+string[] ArrayConversion(string[] array) 
 {
     string[] newArrayFirst = new string[array.Length];
     int temp = 0;
@@ -44,11 +44,11 @@ string[] ArrayConversion(string[] array) // Функция находит чис
 }
 
 Console.WriteLine("Данная программа формирует из вводимого массива строк массив строк, длина которых меньше или равна 3.");
-Console.Write("Введите длину массива: ");  //Задаем размер массива
+Console.Write("Введите длину массива: "); 
 
 int arrayLength = Convert.ToInt32(Console.ReadLine());
 
-while (arrayLength < 1) // Проверка размера массива
+while (arrayLength < 1) 
 {
     Console.WriteLine("Введите целок число, которое больше 0.");
     Console.Write("Введите длину массива: ");
