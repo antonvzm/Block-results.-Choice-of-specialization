@@ -7,7 +7,6 @@
 // Пример: 
 // ["hello","2","world",":-)"] -> ["2",":-)"]
 
-Console.WriteLine("Данная программа формирует из вводимого массива строк массив строк, длина которых меньше или ровна 3.");
 string[] CreateArrayString(int arrayLength)  // Функция для создания массива из строк.
 {
 string[] arrayString = new string[arrayLength];
@@ -19,7 +18,7 @@ for (int i = 0; i < arrayLength; i++)
 return arrayString;
 }
 
-void PrintArray(string[] array)  // Функция для вывода мисива.
+void PrintArray(string[] array)  // Функция для вывода мисcива.
 {
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
@@ -32,18 +31,29 @@ void PrintArray(string[] array)  // Функция для вывода миси�
     Console.Write("]");
 }
 
-string[] ArrayConversion(string[] array)
+string[] ArrayConversion(string[] array) // Функция находит число элементов длинна которых меньше или равна 3 и создает новый масив.
 {
-    string[] newArray = new string[array.Length];
+    string[] newArrayFirst = new string[array.Length];
     int temp = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length <= 3)
-        newArray[temp] = array[i];
+        if (array[i].Length <= 3 && array[i].Length >= 1)
+        {
+            newArrayFirst[temp] = array[i];
+            temp++;
+        }
     }
-    return newArray;
+    string[] newArraySecond = new string[temp];
+    for (int i = 0; i < newArraySecond.Length; i++)
+    {
+        newArraySecond[i] = newArrayFirst[i];
+    }
+    
+    return newArraySecond;
 }
 
+
+Console.WriteLine("Данная программа формирует из вводимого массива строк массив строк, длина которых меньше или равна 3.");
 Console.Write("Введите длину массива: ");  //Задаем размер массива
 int arrayLength = Convert.ToInt32(Console.ReadLine());
 
@@ -53,6 +63,7 @@ else
 {
 string[] array = CreateArrayString(arrayLength);
 PrintArray(array);
-}
+Console.Write(" -> ");
 string[] newArray = ArrayConversion(array);
 PrintArray(newArray);
+}
