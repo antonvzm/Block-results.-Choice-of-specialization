@@ -1,21 +1,12 @@
-﻿// 1. Создать репозиторий на GitHub
-// 2. Нарисовать блок-схему алгоритма
-// 3. Создать файл с описанием решения (Readmi.md)
-// 4. Написать программу, решающую поставленную задачу
-// 5. Использовать контроль версии в работе
-// Задача: Написать программу которая из имеющего масива строк формирует массив из строк, длина которых меньше или равна 3 символам
-// Пример: 
-// ["hello","2","world",":-)"] -> ["2",":-)"]
-
-string[] CreateArrayString(int arrayLength)  // Функция для создания массива из строк.
+﻿string[] CreateArrayString(int arrayLength)  // Функция для создания массива из строк.
 {
-string[] arrayString = new string[arrayLength];
-for (int i = 0; i < arrayLength; i++)
-{
-    Console.Write($"Введите строку номер {i+1}: ");
-    arrayString[i] = Console.ReadLine() ?? "";
-}
-return arrayString;
+    string[] arrayString = new string[arrayLength];
+    for (int i = 0; i < arrayLength; i++)
+    {
+        Console.Write($"Введите строку номер {i + 1}: ");
+        arrayString[i] = Console.ReadLine() ?? "";
+    }
+    return arrayString;
 }
 
 void PrintArray(string[] array)  // Функция для вывода мисcива.
@@ -31,7 +22,7 @@ void PrintArray(string[] array)  // Функция для вывода мисcи
     Console.Write("]");
 }
 
-string[] ArrayConversion(string[] array) // Функция находит число элементов длинна которых меньше или равна 3 и создает новый масив.
+string[] ArrayConversion(string[] array) // Функция находит число элементов длинна которых меньше или равна 3 и создает новый массив.
 {
     string[] newArrayFirst = new string[array.Length];
     int temp = 0;
@@ -48,22 +39,29 @@ string[] ArrayConversion(string[] array) // Функция находит чис
     {
         newArraySecond[i] = newArrayFirst[i];
     }
-    
+
     return newArraySecond;
 }
 
-
 Console.WriteLine("Данная программа формирует из вводимого массива строк массив строк, длина которых меньше или равна 3.");
 Console.Write("Введите длину массива: ");  //Задаем размер массива
+
 int arrayLength = Convert.ToInt32(Console.ReadLine());
 
-if (arrayLength <= 0) // Проверка длины масива
-Console.WriteLine("Введите целок число, которое больше 0.");
-else
+while (arrayLength < 1) // Проверка размера массива
 {
-string[] array = CreateArrayString(arrayLength);
-PrintArray(array);
-Console.Write(" -> ");
-string[] newArray = ArrayConversion(array);
-PrintArray(newArray);
+    Console.WriteLine("Введите целок число, которое больше 0.");
+    Console.Write("Введите длину массива: ");
+    arrayLength = Convert.ToInt32(Console.ReadLine());
 }
+
+string[] array = CreateArrayString(arrayLength);
+
+PrintArray(array);
+
+Console.Write(" -> ");
+
+string[] newArray = ArrayConversion(array);
+
+PrintArray(newArray);
+
